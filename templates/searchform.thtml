@@ -1,0 +1,69 @@
+{# begin {templatelocation} #}
+
+<h2>{$LANG09[1]}</h2>
+
+<form class="uk-form uk-form-stacked uk-margin-large uk-search uk-width-1-1" method="get" action="{form_action}">
+	<input type="hidden" name="mode" value="search">
+	<input class="uk-search uk-width-4-5 uk-form-large required" type="search" id="query" name="q" value="{query}" placeholder="{$LANG_INDEXER[search_placeholder]}">
+
+	<button class="uk-button uk-button-primary uk-button-large" type="submit" name="submit" value="{$LANG09[10]}">{$LANG09[10]}</button>
+
+	<div id="advanced" class="uk-margin-top">
+		<div class="uk-grid uk-margin-bottom">
+
+			<div class="uk-width-medium-1-3">
+				<label class="uk-form-label">
+					{$LANG09[70]}
+				</label>
+				<div class="uk-form-controls">
+					<select class="" name="type">
+		<!-- BEGIN PluginTypes -->
+						<option value="{pi_name}" {selected}>{pi_text}</option>
+		<!-- END PluginTypes -->
+					</select>
+				</div>
+			</div>
+
+			<div class="uk-width-medium-1-3">
+				<label class="uk-form-label">
+					{$LANG09[71]}
+				</label>
+				<div class="uk-form-controls">
+					<select name="st">
+						<option value="0" {dt_sel_0}>{$LANG_INDEXER[all]}</option>
+						<option value="1" {dt_sel_1}>{$LANG_INDEXER[one_day]}</option>
+						<option value="7" {dt_sel_7}>{$LANG_INDEXER[seven_days]}</option>
+						<option value="14" {dt_sel_14}>{$LANG_INDEXER[two_weeks]}</option>
+						<option value="30" {dt_sel_30}>{$LANG_INDEXER[one_month]}</option>
+						<option value="90" {dt_sel_90}>{$LANG_INDEXER[three_months]}</option>
+						<option value="180" {dt_sel_180}>{$LANG_INDEXER[six_months]}</option>
+						<option value="365" {dt_sel_365}>{$LANG_INDEXER[one_year]}</option>
+						<option value="730" {dt_sel_730}>{$LANG_INDEXER[two_years]}</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="uk-width-medium-1-3">
+				<label class="uk-form-label">
+					{$LANG09[72]}
+				</label>
+				<div class="uk-form-controls">
+					<select name="keyType">
+						<option value="any" {key_any_selected}>{$LANG09[45]}</option>
+						<option value="all" {key_all_selected}>{$LANG09[44]}</option>
+						<option value="phrase" {key_phrase_selected}>{$LANG09[43]}</option>
+					</select>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</form>
+
+{!if query_string}
+<div class="uk-alert uk-alert-danger">
+	{query_string}
+</div>
+{!endif}
+
+{# end {templatelocation} #}

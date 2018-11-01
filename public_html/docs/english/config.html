@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="uk-height-1-1">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon-precomposed" href="../../layout/cms/images/apple-touch-icon.png">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.3/css/uikit.almost-flat.min.css">
+  <meta name="robots" content="noindex,nofollow" />
+  <title>glFusion Indexer Plugin Configuration</title>
+  <style>
+    html{background:#f9f9f9}.tm-dropdown,.tm-navbar{background:#325482!important}.uk-form label{font-weight:700}.tm-navbar{border-radius:0!important;padding:1px 0 6px!important;border:none!important}.tm-navbar-brand{color:#eee!important}.tm-navbar-brand a{text-shadow:none;color:#fff}.tm-navbar-brand a:hover{color:#ababab;text-decoration:none}.tm-navbar-brand-oc a{text-shadow:none;color:#fff}.tm-navbar-brand-oc a:hover{color:#ababab;text-decoration:none}.tm-navbar-nav>li>a{border:none;border-radius:3px!important;font-size:15px!important;height:40px!important;margin:0!important}.tm-dropdown{color:#000;border-radius:0!important;border:0!important}.tm-nav-navbar>li>a{color:#fff!important}.tm-navbar::after,.tm-navbar::before{margin-top:7px!important}.tm-navbar-nav>li.uk-open>a,.tm-navbar-nav>li:hover>a,.tm-navbar-nav>li>a:focus{color:#fff;outline:0;background:#35B3EE!important}.tm-navbar-nav>li>a{color:#fff!important;text-shadow:none!important}.tm-navbar-toggle{color:#ccc!important;text-shadow:none!important}.tm-navbar-toggle:focus,.tm-navbar-toggle:hover{color:#fff!important}.tm-footer{background:#252525;border-top:1px solid #232425;margin-bottom:0;bottom:0;padding:10px;color:#fff}.tm-wrapper{min-height:100%;margin:0 auto -51px!important}.tm-push,footer{height:51px}.uk-navbar-content > a {color:#fff !important;}
+  </style>
+</head>
+
+<body class="uk-height-1-1">
+  <div class="tm-wrapper">
+    <nav class="uk-navbar uk-navbar-attached tm-navbar uk-margin-bottom">
+      <div class="uk-navbar-brand tm-navbar-brand">
+        glFusion Indexer Plugin Configuration
+      </div>
+      <div class="uk-navbar-flip uk-hidden-small">
+        <div class="uk-navbar-content tm-navbar-content" style="text-shadow:none;">
+          <a href="https://www.glfusion.org/wiki/">glFusion Wiki</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="uk-container uk-container-center uk-margin-bottom">
+      <h1>glFusion Indexer Plugin Configuration</h1>
+      <p>The Indexer Plugin provides an improved search engind for glFusion that indexes documents and returns results weighted by relevance.</p>
+
+      <h2>Main Indexer Options</h2>
+
+      <dl id="desc_replace_stock_search">
+        <dt>Replace Stock glFusion Search?</dt>
+        <dd>Select &quot;Yes&quot; for the Indexer plugin to replace the standard glFusion search function. If set, the Search plugin will be used anyplace &quot;search.php&quot; is called, such as the search form in the header and links from profile pages.
+If this is set to &quot;No&quot; then the standard search function is used. The Indexer can still be accessed at /indexer/index.php.</dd>
+      </dl>
+
+      <dl id="desc_stopwords">
+        <dt>Stopwords</dt>
+        <dd>A comma separated list of common words to remove from the search index and queries. Words such as THE, IS, A, etc. If you update the stop words, it is recommended that you Reindex your content.</dd>
+      </dl>
+
+      <dl id="desc_search_type">
+        <dt>Default Search Type</dt>
+        <dd>Sets the default search type of All words, any words or exact phrase.</dd>
+      </dl>
+
+      <dl id="desc_per_page">
+        <dt>Results Per Page</dt>
+        <dd>Number of search results to show per page. For improved performance, keep this number reasonable around 20 or 25.</dd>
+      </dl>
+
+      <dl id="desc_excerpt_length">
+        <dt>Excerpt Length</dt>
+        <dd>Number of words to include in the search results brief description.</dd>
+      </dl>
+
+      <dl id="desc_summarize_discussions">
+        <dt>Index Forum Posts by Parent</dt>
+        <dd>If enabled, Forum discussions will consolidate all posts by parent - resulting in only 1 search result per forum topic.</dd>
+      </dl>
+
+    </div>
+  </div>
+</body>
+</html>
