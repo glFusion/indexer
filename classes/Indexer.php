@@ -788,6 +788,7 @@ class Indexer
 
         $T->set_var(array(
             'lang_search'           => $LANG_INDEXER['search'],
+            'lang_search_site'      => sprintf($LANG09[1],$_CONF['site_name']),
             'query'                 => htmlspecialchars($this->query),
         ));
 
