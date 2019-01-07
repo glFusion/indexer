@@ -1,5 +1,8 @@
 # Indexer Plugin ChangeLog
 
+## v1.0.1
+  - Fixed translation support for glFusion v2
+
 ## v1.0.0
   - Add option for default search mode (all, any, phrase)
   - Added search time to show the number of seconds to perform search
