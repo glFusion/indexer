@@ -9,7 +9,7 @@
 * @license GNU General Public License version 2 or later
 *     http://www.opensource.org/licenses/gpl-license.php
 *
-*  Copyright (C) 2018 by the following authors:
+*  Copyright (C) 2018-2019 by the following authors:
 *   Mark R. Evans   mark AT glfusion DOT org
 *
 *  Based on the Searcher Plugin for glFusion
@@ -62,7 +62,7 @@ function indexer_upgrade()
             // updated stop words
 
         case '1.0.0' :
-            // no db changes
+            // no DB changes
 
         default:
             DB_query("UPDATE {$_TABLES['plugins']} SET pi_version='".$_INDEXER_CONF['pi_version']."',

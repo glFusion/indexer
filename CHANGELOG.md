@@ -1,7 +1,7 @@
 # Indexer Plugin ChangeLog
 
 ## v1.0.1
-  - Fixed translation support for glFusion v2
+  - Fixed an issue where some content saved would not update the search index
 
 ## v1.0.0
   - Add option for default search mode (all, any, phrase)

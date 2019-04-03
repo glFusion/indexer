@@ -9,7 +9,7 @@
 * @license GNU General Public License version 2 or later
 *     http://www.opensource.org/licenses/gpl-license.php
 *
-*  Copyright (C) 2018 by the following authors:
+*  Copyright (C) 2018-2019 by the following authors:
 *   Mark R. Evans   mark AT glfusion DOT org
 *
 *  Based on the Searcher Plugin for glFusion
@@ -195,9 +195,7 @@ function plugin_itemsaved_indexer($id, $type, $old_id = '')
 {
     global $_INDEXER_CONF, $_TABLES;
 
-    if ($type == 'indexer') return;
-
-    if (!function_exists('plugin_getiteminfo_' . $type)) {
+    if ($type == 'indexer') {
         return;
     }
 
@@ -212,7 +210,7 @@ function plugin_itemsaved_indexer($id, $type, $old_id = '')
             'id,date,parent_type,parent_id,title,searchidx,author,author_name,hits,perms,search_index,status'
         );
     }
-    if ( is_array($contentInfo) && count($contentInfo) > 0 ) {
+    if ( $contentInfo !== false && is_array($contentInfo) && count($contentInfo) > 0 ) {
         if (!isset($contentInfo['perms']) || empty($contentInfo['perms'])) {
             $contentInfo['perms'] = array(
                 'owner_id' => 2,
@@ -244,15 +242,11 @@ function plugin_itemsaved_indexer($id, $type, $old_id = '')
         if ( $old_id != '' && $id != $old_id ) {
             \Indexer\Indexer::RemoveDoc($type, $old_id);
         }
-// don't need to remove the doc since we use replace into in indexdoc
-//        \Indexer\Indexer::RemoveDoc($type, $id);
         if ($contentInfo['status']) {
             // Index only if status is nonzero (i.e. not draft or disabled)
             \Indexer\Indexer::IndexDoc($props);
         }
         $c = \glFusion\Cache::getInstance()->deleteItemsByTag('searchcache');
-    } else {
-        COM_errorLog("Error retrieving content info - Type = $type, ID = $id");
     }
 }
 
