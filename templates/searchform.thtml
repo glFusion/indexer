@@ -66,4 +66,8 @@
 </div>
 {!endif}
 
+{!if altered_search_message}
+<div class="uk-alert uk-alert-danger">{altered_search_message}</div>
+{!endif}
+
 {# end {templatelocation} #}

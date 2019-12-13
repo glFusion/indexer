@@ -88,7 +88,7 @@
 			$c2 = self::$consonant_short;
 			$v = self::$vowel;
 
-				if (strlen($word)<3 && preg_match("#$v#", $word{0})  && preg_match("#$c#", $word{1})){
+				if (strlen($word)<3 && preg_match("#$v#", $word[0])  && preg_match("#$c#", $word[1])){
 					return true;
 				} else{
 					if (preg_match("#$c2#", substr($word,-1)) && (preg_match("#$v#", substr($word, -2, 1)) || substr($word, -2, 1) == 'y') && preg_match("#$c#", substr($word, -3, 1))){
@@ -129,9 +129,9 @@
 			$c = self::$consonant;
 			$v = self::$vowel;
 			for ($i=0; $i<strlen($word); $i++) {
-				$char = $word{$i};
-				if ($char == 'y' AND ($i==0 OR ($i>0 AND preg_match("#$v#", $word{$i-1})))){
-					$word{$i} = 'Y';
+				$char = $word[$i];
+				if ($char == 'y' AND ($i==0 OR ($i>0 AND preg_match("#$v#", $word[$i-1])))){
+					$word[$i] = 'Y';
 				}
 			}
 			$this->updateR1R2($word);

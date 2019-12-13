@@ -195,7 +195,9 @@ function plugin_itemsaved_indexer($id, $type, $old_id = '')
 {
     global $_INDEXER_CONF, $_TABLES;
 
-    if ($type == 'indexer') {
+    if ($type == 'indexer') return;
+
+    if (!function_exists('plugin_getiteminfo_' . $type)) {
         return;
     }
 
@@ -210,7 +212,8 @@ function plugin_itemsaved_indexer($id, $type, $old_id = '')
             'id,date,parent_type,parent_id,title,searchidx,author,author_name,hits,perms,search_index,status'
         );
     }
-    if ( $contentInfo !== false && is_array($contentInfo) && count($contentInfo) > 0 ) {
+
+    if ($contentInfo !== false && is_array($contentInfo) && count($contentInfo) > 0) {
         if (!isset($contentInfo['perms']) || empty($contentInfo['perms'])) {
             $contentInfo['perms'] = array(
                 'owner_id' => 2,
@@ -246,8 +249,11 @@ function plugin_itemsaved_indexer($id, $type, $old_id = '')
             // Index only if status is nonzero (i.e. not draft or disabled)
             \Indexer\Indexer::IndexDoc($props);
         }
-        $c = \glFusion\Cache::getInstance()->deleteItemsByTag('searchcache');
+    } else {
+        // if we didn't find anything for this item - assume it is gone
+        \Indexer\Indexer::RemoveDoc($type, $id);
     }
+    $c = Cache::getInstance()->deleteItemsByTag('searchcache');
 }
 
 

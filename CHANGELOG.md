@@ -1,5 +1,9 @@
 # Indexer Plugin ChangeLog
 
+## v1.0.2
+  - PHP v7.4 fixes
+  - Search using any words if all words did not produce results
+
 ## v1.0.1
   - Fixed an issue where some content saved would not update the search index
 

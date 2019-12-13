@@ -7,7 +7,7 @@
 * @license GNU General Public License version 2 or later
 *     http://www.opensource.org/licenses/gpl-license.php
 *
-*  Copyright (C) 2018 by the following authors:
+*  Copyright (C) 2018-2019 by the following authors:
 *   Mark R. Evans   mark AT glfusion DOT org
 *
 *  Based on the Searcher Plugin for glFusion
@@ -39,6 +39,7 @@ $LANG_INDEXER = array(
     'two_years'     => '2 years',
     'seconds'       => 'secs',
     'search_placeholder' => 'Enter Your Search Request',
+    'altered_search' => 'Using <b>all of these words</b> did not return any data so the search was modified to <b>any of these words</b>',
 );
 
 $LANG_INDEXER_ADM = array(
@@ -95,6 +96,12 @@ $LANG_fs['indexer'] = array(
     'fs_main' => 'Settings',
 );
 
+$LANG_configSelect['indexer'] = array(
+    0  => array(1 => 'True', 0 => 'False'),
+    1  => array('all' => 'All of the words', 'any' => 'Any of the words', 'phrase' => 'Exact Phrase'),
+);
+
+// glFusion v1.7.x support
 $LANG_configselects['indexer'] = array(
     0  => array('True' => 1, 'False' => 0 ),
     1  => array('All of the words' => 'all', 'Any of the words' => 'any', 'Exact Phrase' => 'phrase'),
