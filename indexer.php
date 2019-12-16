@@ -25,7 +25,7 @@ global $_DB_table_prefix, $_TABLES;
 
 $_INDEXER_CONF['pi_name']            = 'indexer';
 $_INDEXER_CONF['pi_display_name']    = 'Indexer';
-$_INDEXER_CONF['pi_version']         = '1.0.2';
+$_INDEXER_CONF['pi_version']         = '1.0.1';
 $_INDEXER_CONF['gl_version']         = '1.7.6';
 $_INDEXER_CONF['pi_url']             = 'https://www.glfusion.org';
 

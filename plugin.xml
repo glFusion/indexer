@@ -2,7 +2,7 @@
     <id>indexer</id>
     <name>Indexer</name>
     <description>Alternative search function for glFusion</description>
-    <version>1.0.2</version>
+    <version>1.0.1</version>
     <glfusionversion>1.7.6</glfusionversion>
     <phpversion>7.0.0</phpversion>
     <url>https://www.glfusion.org</url>
