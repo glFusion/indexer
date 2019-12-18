@@ -1,6 +1,7 @@
 # Indexer Plugin ChangeLog
 
 ## v1.0.1
+  - Resolved an issue where saving an article did not properly re-index the content
   - PHP v7.4 fixes
   - Search using any words if all words did not produce results
   - Fixed an issue where some content saved would not update the search index
