@@ -154,7 +154,7 @@ function INDEXER_indexContentItemAjax()
             ),
         );
 
-        Indexer\Indexer::IndexDoc($props);
+        \Indexer\Indexer::IndexDoc($props);
 
         if (function_exists('plugin_commentsupport_'.$type ) || $type == 'article' ) {
             if ( $type != 'article' ) {
