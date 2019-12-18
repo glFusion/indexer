@@ -197,9 +197,9 @@ function plugin_itemsaved_indexer($id, $type, $old_id = '')
 
     if ($type == 'indexer') return;
 
-    if (!function_exists('plugin_getiteminfo_' . $type)) {
-        return;
-    }
+//    if (!function_exists('plugin_getiteminfo_' . $type)) {
+//        return;
+//    }
 
     if ($_INDEXER_CONF['summarize_discussions'] == true) {
         $contentInfo = PLG_getItemInfo(
@@ -253,7 +253,7 @@ function plugin_itemsaved_indexer($id, $type, $old_id = '')
         // if we didn't find anything for this item - assume it is gone
         \Indexer\Indexer::RemoveDoc($type, $id);
     }
-    $c = Cache::getInstance()->deleteItemsByTag('searchcache');
+    $c =  \glFusion\Cache::getInstance()->deleteItemsByTag('searchcache');
 }
 
 
