@@ -9,7 +9,7 @@
 * @license GNU General Public License version 2 or later
 *     http://www.opensource.org/licenses/gpl-license.php
 *
-*  Copyright (C) 2018 by the following authors:
+*  Copyright (C) 2018-2019 by the following authors:
 *   Mark R. Evans   mark AT glfusion DOT org
 *
 *  Based on the Searcher Plugin for glFusion
@@ -95,7 +95,9 @@ foreach($expected as $provided) {
     }
 }
 
-if ( isset($_POST['cancelbutton'])) COM_refresh($_CONF['site_admin_url'].'/plugins/indexer/index.php');
+if ( isset($_POST['cancelbutton'])) {
+    COM_refresh($_CONF['site_admin_url'].'/plugins/indexer/index.php');
+}
 
 switch ($action) {
     case 'reindex':

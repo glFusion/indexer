@@ -72,6 +72,11 @@ class Indexer
      */
     private $searchTime = 0.0;
 
+    /**
+     * @var alteredSearch
+     */
+    private $alteredSearch = 0;
+
 
     /**
     *   Class constructor - sets current search criteria based on $_GET vars
@@ -378,7 +383,7 @@ class Indexer
     */
     private static function removeAutoTags($content)
     {
-        $result = preg_replace('/\[.*?\]/', '', $content);
+        $result = preg_replace("/\[\w+:[^\]]*\]/", '', $content);
         return $result;
     }
 
@@ -622,6 +627,13 @@ class Indexer
             $this->searchTime = $searchtimer->stopTimer();
         }
 
+        // if not search author and searchtype = 'all' - try one more time with 'any'
+        if (count($this->results) < 1 && $this->searchType == 'all' && $this->searchAuthor == 0) {
+            $this->searchType = 'any';
+            $this->alteredSearch = 1;
+            return $this->doSearch();
+        }
+
         if ($this->searchAuthor == 0) {
             $retval .= $this->showForm();
         } else {
@@ -786,8 +798,13 @@ class Indexer
         $T = new \Template($_CONF['path'].'plugins/indexer/templates');
         $T->set_file('searchform', 'searchform.thtml');
 
+        if ($this->alteredSearch == 1) {
+            $T->set_var('altered_search_message', $LANG_INDEXER['altered_search']);
+        }
+
         $T->set_var(array(
             'lang_search'           => $LANG_INDEXER['search'],
+            'lang_search_site'      => sprintf($LANG09[1],$_CONF['site_name']),
             'query'                 => htmlspecialchars($this->query),
         ));
 

@@ -1,6 +1,6 @@
 {# begin {templatelocation} #}
 
-<h2>{$LANG09[1]}</h2>
+<h2>{lang_search_site}</h2>
 
 <form class="uk-form uk-form-stacked uk-margin-large uk-search uk-width-1-1" method="get" action="{form_action}">
 	<input type="hidden" name="mode" value="search">
@@ -64,6 +64,10 @@
 <div class="uk-alert uk-alert-danger">
 	{query_string}
 </div>
+{!endif}
+
+{!if altered_search_message}
+<div class="uk-alert uk-alert-danger">{altered_search_message}</div>
 {!endif}
 
 {# end {templatelocation} #}
