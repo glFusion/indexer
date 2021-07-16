@@ -1040,12 +1040,12 @@ class Indexer
 
     private static function cleanString($str)
     {
-        $str = strtolower($str);
+        $str = utf_strtolower($str);
         $str = strip_tags($str);
         $str = self::stripStopwords($str);
         $str = str_replace("&nbsp;"," ",$str);
         $str = str_replace (array("\r\n", "\n", "\r"), ' ', $str);
-        $str = preg_replace("#[[:punct:]]#", " ", $str);
+        $str = preg_replace("#[[:punct:]]#u", " ", $str);
         $str = preg_replace('/\s+/u', ' ',$str);
         $str = trim(rtrim($str));
         return $str;
