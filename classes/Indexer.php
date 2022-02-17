@@ -1040,7 +1040,7 @@ class Indexer
 
     private static function cleanString($str)
     {
-        $str = utf_strtolower($str);
+        $str = utf8_strtolower($str);
         $str = strip_tags($str);
         $str = self::stripStopwords($str);
         $str = str_replace("&nbsp;"," ",$str);
