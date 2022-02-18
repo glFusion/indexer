@@ -1,5 +1,10 @@
 # Indexer Plugin ChangeLog
 
+## v1.0.2
+
+  - Improved error checking on getItemInfo()
+  - Improved indexing on utf-8 content
+  
 ## v1.0.1
   - Resolved an issue where saving an article did not properly re-index the content
   - PHP v7.4 fixes
