@@ -148,7 +148,7 @@ function plugin_getconfigelementhelp_indexer($option, $doclang='english')
 
     $doc_url = $_CONF['site_url'] . '/indexer/docs/'.$doclang.'/config.html';
 
-     if (empty($doc_url))
+     if (empty($doc_url) || !file_exists($doc_url))
         return false;
 
     if (!empty($option)) {
