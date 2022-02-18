@@ -64,6 +64,9 @@ function indexer_upgrade()
         case '1.0.0' :
             // no DB changes
 
+        case '1.0.1' :
+            // no DB changes
+
         default:
             DB_query("UPDATE {$_TABLES['plugins']} SET pi_version='".$_INDEXER_CONF['pi_version']."',
                     pi_gl_version='".$_INDEXER_CONF['gl_version']."' WHERE pi_name='indexer' LIMIT 1");
