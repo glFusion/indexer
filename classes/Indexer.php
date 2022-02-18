@@ -432,6 +432,7 @@ class Indexer
         global $_TABLES, $_INDEXER_CONF, $_USER, $LANG_INDEXER;
 
         $retval = '';
+        $keywords = array();
 
         $sql = '';
 
@@ -596,7 +597,7 @@ class Indexer
 
                 while (($row = DB_fetchArray($result)) != NULL) {
                     $contentInfo = PLG_getItemInfo($row['type'],$row['item_id'],'id,date,url,title,searchidx,author,author_name,hits,perms,status');
-                    if ($contentInfo !== NULL && count($contentInfo) > 0 ) {
+                    if ($contentInfo !== NULL && is_array($contentInfo) && count($contentInfo) > 0 ) {
                         if (!isset($row['relevance'])) $row['relevance'] = 0;
                         if (!isset($contentInfo['hits'])) $contentInfo['hits'] = 0;
                         if (!isset($contentInfo['title'])) $contentInfo['title'] = 'Not defined';
