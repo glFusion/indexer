@@ -432,6 +432,7 @@ class Indexer
         global $_TABLES, $_INDEXER_CONF, $_USER, $LANG_INDEXER;
 
         $retval = '';
+        $keywords = array();
 
         $sql = '';
 
@@ -596,7 +597,7 @@ class Indexer
 
                 while (($row = DB_fetchArray($result)) != NULL) {
                     $contentInfo = PLG_getItemInfo($row['type'],$row['item_id'],'id,date,url,title,searchidx,author,author_name,hits,perms,status');
-                    if ($contentInfo !== NULL && count($contentInfo) > 0 ) {
+                    if ($contentInfo !== NULL && is_array($contentInfo) && count($contentInfo) > 0 ) {
                         if (!isset($row['relevance'])) $row['relevance'] = 0;
                         if (!isset($contentInfo['hits'])) $contentInfo['hits'] = 0;
                         if (!isset($contentInfo['title'])) $contentInfo['title'] = 'Not defined';
@@ -1040,12 +1041,12 @@ class Indexer
 
     private static function cleanString($str)
     {
-        $str = strtolower($str);
+        $str = utf8_strtolower($str);
         $str = strip_tags($str);
         $str = self::stripStopwords($str);
         $str = str_replace("&nbsp;"," ",$str);
         $str = str_replace (array("\r\n", "\n", "\r"), ' ', $str);
-        $str = preg_replace("#[[:punct:]]#", " ", $str);
+        $str = preg_replace("#[[:punct:]]#u", " ", $str);
         $str = preg_replace('/\s+/u', ' ',$str);
         $str = trim(rtrim($str));
         return $str;
